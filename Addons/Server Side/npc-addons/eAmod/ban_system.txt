@@ -12,21 +12,21 @@
 // |--------------------------------------------------------------------------|
 // | Script Name: eAmod Banishment System                                     |
 // |--------------------------------------------------------------------------|
-// | Created by: J3MK1 & shellTeMP                                            |
+// | Created by: shellTeMP                                                    |
 // |--------------------------------------------------------------------------|
 // | Versions eASU/eA/brA/Herc/rA: all/all/all/all/all                        |
 // |--------------------------------------------------------------------------|
 // | Description: A Banishment System developed exclusive to eAmod System     |
 // |--------------------------------------------------------------------------|
 // | Changelog:                                                               |
-// | 1.0 - Initial Script Developed [J3MK1]                                   |
-// | 1.1 - Corrections on some Syntax and Messages [J3MK1]                    |
+// | 1.0 - Initial Script Developed [shellTeMP]                               |
+// | 1.1 - Corrections on some Syntax and Messages [shellTeMP]                |
 // | 1.2 - Added Global Offline Functions [shellTeMP]                         |
-// | 1.3 - Added Cutin and Sleep 10s to Banishment [J3MK1]                    | 
-// | 1.4 - Corrections on some Syntax and Messages [J3MK1]                    |
-// | 1.5 - Add some Messages [J3MK1]                                          |
+// | 1.3 - Added Cutin and Sleep 10s to Banishment [shellTeMP]                | 
+// | 1.4 - Corrections on some Syntax and Messages [shellTeMP]                |
+// | 1.5 - Add some Messages [shellTeMP]                                      |
 // | 1.6 - Corrections in the Offline Jailing and Ban System [shellTeMP]      |
-// | 1.7 - Corrected in the Mute System [J3MK1]                               |
+// | 1.7 - Corrected in the Mute System [shellTeMP]                           |
 // \_________________________________________________________________________/
 
 -	script	eamodcmdban	-1,{
