@@ -1,5 +1,20 @@
-// Copyright (c) Athena Dev Teams - Licensed under GNU GPL
-// For more information, see LICENCE in the main folder
+/****************************************************************************!
+*                            _                                               *
+*                           / \                         _                    *
+*                   ___    / _ \   _ __ ___   ____  ___| |                   *
+*                  / _ \  / /_\ \ | '_ ` _ \./  _ \/  _  |                   *
+*                 |  __/ /  ___  \| | | | | |  (_) ) (_) |                   *
+*                  \___|/__/   \__\_| |_| |_|\____/\_____/                   *
+*                                                                            *
+*                               eAmod Script                                 *
+*                                                                            *
+* \file src/map/trade.c     	                                             *
+*                                                                            *
+* Primary Description.                                                       *
+* More elaborate description of the file.                                    *
+* \author eAthena Dev Teams                                                  *
+* \date ?                                                                    *
+*****************************************************************************/
 
 #include "../common/nullpo.h"
 #include "../common/socket.h"
@@ -547,7 +562,7 @@ void trade_tradecancel(struct map_session_data *sd)
 }
 
 /*==========================================
- * Žæˆø‹–‘ø(trade‰Ÿ‚µ)
+ * ÂŽÃ¦ÂˆÃ¸Â‹Â–Â‘Ã¸(tradeÂ‰ÂŸÂ‚Âµ)
  *------------------------------------------*/
 void trade_tradecommit(struct map_session_data *sd)
 {
