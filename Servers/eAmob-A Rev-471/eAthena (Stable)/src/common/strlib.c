@@ -1,5 +1,20 @@
-// Copyright (c) Athena Dev Teams - Licensed under GNU GPL
-// For more information, see LICENCE in the main folder
+/****************************************************************************!
+*                            _                                               *
+*                           / \                         _                    *
+*                   ___    / _ \   _ __ ___   ____  ___| |                   *
+*                  / _ \  / /_\ \ | '_ ` _ \./  _ \/  _  |                   *
+*                 |  __/ /  ___  \| | | | | |  (_) ) (_) |                   *
+*                  \___|/__/   \__\_| |_| |_|\____/\_____/                   *
+*                                                                            *
+*                               eAmod Script                                 *
+*                                                                            *
+* \file src/common/strlib.c                                                  *
+*                                                                            *
+* Primary Description.                                                       *
+* More elaborate description of the file.                                    *
+* \author eAthena Dev Teams                                                  *
+* \date ?                                                                    *
+*****************************************************************************/
 
 #include "../common/cbasetypes.h"
 #include "../common/malloc.h"
@@ -331,7 +346,7 @@ int e_mail_check(char* email)
 
 //--------------------------------------------------
 // Return numerical value of a switch configuration
-// on/off, english, français, deutsch, español
+// on/off, english, franÃ§ais, deutsch, espaÃ±ol
 //--------------------------------------------------
 int config_switch(const char* str)
 {
