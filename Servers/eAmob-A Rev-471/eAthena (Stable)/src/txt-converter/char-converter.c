@@ -1,5 +1,20 @@
-// (c) eAthena Dev Team - Licensed under GNU GPL
-// For more information, see LICENCE in the main folder
+/****************************************************************************!
+*                            _                                               *
+*                           / \                         _                    *
+*                   ___    / _ \   _ __ ___   ____  ___| |                   *
+*                  / _ \  / /_\ \ | '_ ` _ \./  _ \/  _  |                   *
+*                 |  __/ /  ___  \| | | | | |  (_) ) (_) |                   *
+*                  \___|/__/   \__\_| |_| |_|\____/\_____/                   *
+*                                                                            *
+*                               eAmod Script                                 *
+*                                                                            *
+* \file src/txt-converter/char-converter.c	                             *
+*                                                                            *
+* Primary Description.                                                       *
+* More elaborate description of the file.                                    *
+* \author eAthena Dev Team                                                   *
+* \date ?                                                                    *
+*****************************************************************************/
 
 #include "../common/cbasetypes.h"
 #include "../common/mmo.h"

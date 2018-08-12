@@ -1,6 +1,20 @@
-// Copyright (c) Athena Dev Teams - Licensed under GNU GPL
-// For more information, see LICENCE in the main folder
-
+/****************************************************************************!
+*                            _                                               *
+*                           / \                         _                    *
+*                   ___    / _ \   _ __ ___   ____  ___| |                   *
+*                  / _ \  / /_\ \ | '_ ` _ \./  _ \/  _  |                   *
+*                 |  __/ /  ___  \| | | | | |  (_) ) (_) |                   *
+*                  \___|/__/   \__\_| |_| |_|\____/\_____/                   *
+*                                                                            *
+*                               eAmod Script                                 *
+*                                                                            *
+* \file src/map/clif.h		                                             *
+*                                                                            *
+* Primary Description.                                                       *
+* More elaborate description of the file.                                    *
+* \author eAthena Dev Teams                                                  *
+* \date ?                                                                    *
+*****************************************************************************/
 #ifndef _CLIF_H_
 #define _CLIF_H_
 

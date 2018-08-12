@@ -1,5 +1,22 @@
-// Copyright (c) Athena Dev Teams - Licensed under GNU GPL
-// For more information, see LICENCE in the main folder
+/****************************************************************************!
+*                            _                                               *
+*                           / \                         _                    *
+*                   ___    / _ \   _ __ ___   ____  ___| |                   *
+*                  / _ \  / /_\ \ | '_ ` _ \./  _ \/  _  |                   *
+*                 |  __/ /  ___  \| | | | | |  (_) ) (_) |                   *
+*                  \___|/__/   \__\_| |_| |_|\____/\_____/                   *
+*                                                                            *
+*                               eAmod Script                                 *
+*                                                                            *
+* \file src/map/pc.h  		            	                             *
+*                                                                            *
+* This file is NOT public - you are not allowed to distribute it.            *
+* eAmod is a non Free, extended version of eAthena Ragnarok Private Server.  *
+* Authorized Server List :                                                   *
+* http://dev.terra-gaming.com/index.php?/topic/72-authorized-eamod-servers/  *
+* \author eAmod Project (Andres Garbanzo / Zephyrus)                         *
+* \date 2008 - 2011                                                          *
+*****************************************************************************/
 
 #ifndef _PC_H_
 #define _PC_H_
@@ -202,7 +219,7 @@ struct map_session_data {
 	time_t idletime;
 	unsigned int keyboard_action_tick;
 	unsigned int mouse_action_tick;
-	time_t idlepvp; // [Zephyrus] Ultimo Tick de daño PVP
+	time_t idlepvp; // [Zephyrus] Ultimo Tick de daÃ±o PVP
 
 	struct{
 		int npc_id;

@@ -1,5 +1,20 @@
-// Copyright (c) Athena Dev Teams - Licensed under GNU GPL
-// For more information, see LICENCE in the main folder
+/****************************************************************************!
+*                            _                                               *
+*                           / \                         _                    *
+*                   ___    / _ \   _ __ ___   ____  ___| |                   *
+*                  / _ \  / /_\ \ | '_ ` _ \./  _ \/  _  |                   *
+*                 |  __/ /  ___  \| | | | | |  (_) ) (_) |                   *
+*                  \___|/__/   \__\_| |_| |_|\____/\_____/                   *
+*                                                                            *
+*                               eAmod Script                                 *
+*                                                                            *
+* \file src/char/int_guild.h                                                 *
+*                                                                            *
+* Primary Description.                                                       *
+* More elaborate description of the file.                                    *
+* \author eAthena Dev Teams                                                  *
+* \date ?                                                                    *
+*****************************************************************************/
 
 #ifndef _INT_GUILD_H_
 #define _INT_GUILD_H_
