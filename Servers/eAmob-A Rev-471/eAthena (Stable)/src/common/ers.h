@@ -1,7 +1,21 @@
+/****************************************************************************!
+*                            _                                               *
+*                           / \                         _                    *
+*                   ___    / _ \   _ __ ___   ____  ___| |                   *
+*                  / _ \  / /_\ \ | '_ ` _ \./  _ \/  _  |                   *
+*                 |  __/ /  ___  \| | | | | |  (_) ) (_) |                   *
+*                  \___|/__/   \__\_| |_| |_|\____/\_____/                   *
+*                                                                            *
+*                               eAmod Script                                 *
+*                                                                            *
+* \file src/common/ers.h                                                     *
+*                                                                            *
+* Primary Description.                                                       *
+* More elaborate description of the file.                                    *
+* \author eAthena Dev Teams                                                  *
+* \date ?                                                                    *
+*****************************************************************************/
 /*****************************************************************************\
- *  Copyright (c) Athena Dev Teams - Licensed under GNU GPL                  *
- *  For more information, see LICENCE in the main folder                     *
- *                                                                           *
  *  <H1>Entry Reusage System</H1>                                            *
  *                                                                           *
  *  There are several root entry managers, each with a different entry size. *
