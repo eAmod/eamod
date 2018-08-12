@@ -1,5 +1,20 @@
-// Copyright (c) Athena Dev Teams - Licensed under GNU GPL
-// For more information, see LICENCE in the main folder
+/****************************************************************************!
+*                            _                                               *
+*                           / \                         _                    *
+*                   ___    / _ \   _ __ ___   ____  ___| |                   *
+*                  / _ \  / /_\ \ | '_ ` _ \./  _ \/  _  |                   *
+*                 |  __/ /  ___  \| | | | | |  (_) ) (_) |                   *
+*                  \___|/__/   \__\_| |_| |_|\____/\_____/                   *
+*                                                                            *
+*                               eAmod Script                                 *
+*                                                                            *
+* \file src/map/party.c		                                             *
+*                                                                            *
+* Primary Description.                                                       *
+* More elaborate description of the file.                                    *
+* \author eAthena Dev Teams                                                  *
+* \date ?                                                                    *
+*****************************************************************************/
 
 #include "../common/cbasetypes.h"
 #include "../common/timer.h"
@@ -116,14 +131,14 @@ static TBL_PC* party_sd_check(int party_id, int account_id, int char_id)
 }
 
 /*==========================================
- * I—¹
+ * ÂIâ€”Â¹
  *------------------------------------------*/
 void do_final_party(void)
 {
 	party_db->destroy(party_db,NULL);
 	party_booking_db->destroy(party_booking_db,NULL); // Party Booking [Spiria]
 }
-// ‰Šú‰»
+// Ââ€°Å Ãºâ€°Â»
 void do_init_party(void)
 {
 	party_db = idb_alloc(DB_OPT_RELEASE_DATA);
