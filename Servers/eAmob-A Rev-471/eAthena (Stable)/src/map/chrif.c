@@ -1,5 +1,20 @@
-// Copyright (c) Athena Dev Teams - Licensed under GNU GPL
-// For more information, see LICENCE in the main folder
+/****************************************************************************!
+*                            _                                               *
+*                           / \                         _                    *
+*                   ___    / _ \   _ __ ___   ____  ___| |                   *
+*                  / _ \  / /_\ \ | '_ ` _ \./  _ \/  _  |                   *
+*                 |  __/ /  ___  \| | | | | |  (_) ) (_) |                   *
+*                  \___|/__/   \__\_| |_| |_|\____/\_____/                   *
+*                                                                            *
+*                               eAmod Script                                 *
+*                                                                            *
+* \file src/map/chrif.c		                                             *
+*                                                                            *
+* Primary Description.                                                       *
+* More elaborate description of the file.                                    *
+* \author eAthena Dev Teams                                                  *
+* \date ?                                                                    *
+*****************************************************************************/
 
 #include "../common/cbasetypes.h"
 #include "../common/malloc.h"
@@ -756,7 +771,7 @@ int chrif_charselectreq(struct map_session_data* sd, uint32 s_ip)
 }
 
 /*==========================================
- * ƒLƒƒƒ‰–¼–â‚¢‡‚í‚¹
+ * ã‚­ãƒ£ãƒ©åå•ã„åˆã‚ã›
  *------------------------------------------*/
 int chrif_searchcharid(int char_id)
 {
@@ -882,7 +897,7 @@ static void chrif_char_ask_name_answer(int acc, const char* player_name, uint16 
 }
 
 /*==========================================
- * «•Ê•Ï‰»I—¹ (modified by Yor)
+ * æ€§åˆ¥å¤‰åŒ–çµ‚äº† (modified by Yor)
  *------------------------------------------*/
 int chrif_changedsex(int fd)
 {
@@ -1623,10 +1638,10 @@ int chrif_parse(int fd)
 		cmd = RFIFOW(fd,0);
 		if (cmd < 0x2af8 || cmd >= 0x2af8 + ARRAYLENGTH(packet_len_table) || packet_len_table[cmd-0x2af8] == 0)
 		{
-			int r = intif_parse(fd); // intif‚É“n‚·
+			int r = intif_parse(fd); // intifã«æ¸¡ã™
 
-			if (r == 1) continue;	// intif‚Åˆ—‚µ‚½
-			if (r == 2) return 0;	// intif‚Åˆ—‚µ‚½‚ªAƒf[ƒ^‚ª‘«‚è‚È‚¢
+			if (r == 1) continue;	// intifã§å‡¦ç†ã—ãŸ
+			if (r == 2) return 0;	// intifã§å‡¦ç†ã—ãŸãŒã€ãƒ‡ãƒ¼ã‚¿ãŒè¶³ã‚Šãªã„
 
 			ShowWarning("chrif_parse: session #%d, intif_parse failed (unrecognized command 0x%.4x).\n", fd, cmd);
 			set_eof(fd);
@@ -1706,8 +1721,8 @@ int send_usercount_tochar(int tid, unsigned int tick, int id, intptr_t data)
 }
 
 /*==========================================
- * timerŠÖ”
- * ¡‚±‚ÌmapI‚ÉŒq‚ª‚Á‚Ä‚¢‚éƒNƒ‰ƒCƒAƒ“ƒgl”‚ğcharI‚Ö‘—‚é
+ * timeré–¢æ•°
+ * ä»Šã“ã®mapé¯–ã«ç¹‹ãŒã£ã¦ã„ã‚‹ã‚¯ãƒ©ã‚¤ã‚¢ãƒ³ãƒˆäººæ•°ã‚’charé¯–ã¸é€ã‚‹
  *------------------------------------------*/
 int send_users_tochar(void)
 {
@@ -1736,8 +1751,8 @@ int send_users_tochar(void)
 }
 
 /*==========================================
- * timerŠÖ”
- * charI‚Æ‚ÌÚ‘±‚ğŠm”F‚µA‚à‚µØ‚ê‚Ä‚¢‚½‚çÄ“xÚ‘±‚·‚é
+ * timeré–¢æ•°
+ * charé¯–ã¨ã®æ¥ç¶šã‚’ç¢ºèªã—ã€ã‚‚ã—åˆ‡ã‚Œã¦ã„ãŸã‚‰å†åº¦æ¥ç¶šã™ã‚‹
  *------------------------------------------*/
 static int check_connect_char_server(int tid, unsigned int tick, int id, intptr_t data)
 {
@@ -1790,7 +1805,7 @@ int auth_db_final(DBKey k,void *d,va_list ap)
 }
 
 /*==========================================
- * I—¹
+ * çµ‚äº†
  *------------------------------------------*/
 int do_final_chrif(void)
 {
