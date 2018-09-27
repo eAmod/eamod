@@ -16,10 +16,10 @@
 // |--------------------------------------------------------------------------|
 // | Versions eASU/eA/brA/Herc/rA: all/all                                    |
 // |--------------------------------------------------------------------------|
-// | Description: Sistema simples de mudanÁa de rates.                        |
+// | Description: Sistema simples de mudan√ßa de rates.                        |
 // | Configure de acordo as rates oficiais de seu servidor, defalt 100 = 1x,  |
-// | duraÁ„o de 6 horas.                                                      |
-// | Nota: O sistema n„o muda as chances de drops raros e n„o muda o drops    |
+// | dura√ß√£o de 6 horas.                                                      |
+// | Nota: O sistema n√£o muda as chances de drops raros e n√£o muda o drops    |
 // | de itens provenientes de cartas.                                         |
 // |--------------------------------------------------------------------------|
 // | Changelog:                                                               |
