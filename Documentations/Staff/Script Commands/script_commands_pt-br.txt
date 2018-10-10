@@ -1979,99 +1979,101 @@ juntamente com este comando quando um script é analisado.
 
 *switch (expression);
 
-The switch statement is similar to a series of if statements on the same expression.
-In many occasions, you may want to compare the same variable (or expression)
-with many different values, and execute a different piece of code depending
-on which value it equals to. This is exactly what the switch statement is for.
+A instrução switch é semelhante a uma série de instruções if na mesma expressão.
+Em muitas ocasiões, você pode querer comparar a mesma variável (ou expressão)
+com muitos valores diferentes, e executar um pedaço diferente de código, dependendo
+em qual valor é igual a. É exatamente para isso que serve a instrução do switch.
 
-It is important to understand how the switch statement is executed in order
-to avoid mistakes. The switch statement executes line by line (actually, statement by statement).
-In the beginning, no code is executed. Only when a case statement is found
-with a value that matches the value of the switch expression the case statement(s)
-will to executed. The parser continues to execute the statements until the end
-of the switch block, or the first time it sees a break statement. If you don't
-write a break statement at the end of a case's statement list, the parser will
-go on executing the statements of the following case (fall-through).
+É importante entender como a instrução switch é executada para
+para evitar erros. A instrução switch executa linha por linha (na verdade, declaração por instrução).
+No começo, nenhum código é executado. Somente quando uma declaração de caso é encontrada
+com um valor que corresponda ao valor da expressão switch que a(s) 
+declaração(ões) será(ão) executada(a). O analisador continua a executar as instruções até o final
+do bloco switch, ou a primeira vez que ele vê uma instrução break. Se você não
+escrever uma instrução break no final da lista de instruções de um caso, o analisador
+continuará executando as instruções do caso seguinte(fall-through).
 
-Example 1:
+Exemplo 1:
 	
 	switch(select("Yes:No")) {
 		case 1:
-			mes "You said yes!";
+			mes "Você disse sim!";
 			break;
 		case 2:
-			mes "Aww, why?";
+			mes "Aww, porque?";
 			break;
 	}
 	close;
 
-The example above would work like a menu and would go to the first case if
-the user selects option, otherwise, would go to the second one.
+O exemplo acima funcionaria como um menu e iria para o primeiro caso se
+o usuário seleciona a opção, caso contrário, iria para o segundo.
 
-Example 2:
+Exemplo 2:
 	
 	switch(getgroupid()) {
 		case 1:
-			mes "Wow, you're super!";
+			mes "Uau, você é demais!";
 			break;
 		case 2:
-			mes "A helping hand!";
+			mes "Uma ajudinha!";
 			break;
 		case 3:
 			mes "10001010010011";
 			break;
 		case 4:
-			mes "Yes, milord?";
+			mes "Sim, milord?";
 			break;
 		default:
-			mes "Hello there!";
+			mes "Olá!";
 			break;		
 	}
+	
 
-The example above would print a message depending on the player's groupid.
-If there is no statement declared for the corresponding groupid, the script
-would use the 'default' statement that applies to rest of possible values,
-similar to 'else' in the if-else statement.
+O exemplo acima imprimiria uma mensagem dependendo do groupid do jogador.
+Se não houver declaração declarada para o correspondente groupid, o script
+usaria a instrução 'padrão' que se aplica ao restante dos valores possíveis,
+semelhante a 'else' na instrução if-else.
 
 ---------------------------------------
 
 *while (<condition>) <statement>;
 
-This is probably the simplest and most frequently used loop structure. The 'while' 
-statement can be interpreted as "while <condition> is true, perform <statement>". 
-It is a pretest loop, meaning the conditional expression is tested before any of the 
-statements in the body of the loop are performed. If the condition evaluates to 
-false, the statement(s) in the body of the loop is/are never executed. If the 
-condition evaluates to true, the statement(s) are executed, then control transfers 
-back to the conditional expression, which is reevaluated and the cycle continues. 
+Esta é provavelmente a estrutura de loop mais simples e mais freqüentemente usada. A instrução 'while'
+pode ser interpretada como "while <condition> é true, execute <instrução>".
+É um loop de pré-teste, ou seja, a expressão condicional é testada antes de qualquer um dos
+declarações no corpo do loop são executadas. Se a condição for avaliada como
+false, a(s) declaração(ões) no corpo do loop é (ou não) é(são) executada(s). Se 
+a condição é avaliada como verdadeira, a(s) instrução(ões) é(são) executada(s) e, 
+em seguida, controla as transferências de volta à expressão condicional, que é 
+reavaliada e o ciclo continua.
 
-Multiple statements can be grouped with { }, curly braces, just like with the 'if' statement.
+Várias instruções podem ser agrupadas com {}, chaves, assim como com a instrução 'if'.
 
-Example 1:
-	while (switch(select("Yes:No") == 2 ))
-		mes "You picked no.";
+Exemplo 1:
+	while (switch(select("Sim:Não") == 2 ))
+		mes "Você escolheu não.";
 	close;
 
-Example 2: multiple statements
-	while (switch(select("Yes:No") == 2 )) {
-		mes "Why did you pick no?";
-		mes "You should pick yes instead!";
+Exemplo 2: múltiplas declarações
+	while (switch(select("Sim:Não") == 2 )) {
+		mes "Por que você escolheu não?";
+		mes "Você deveria ter escolhido sim!";
 	}
 	close;
 
-Example 3: counter-controlled loop
+Exemplo 3: counter-controlled loop
 	.@i = 1;
 	while (.@i <= 5) {
-		mes "This line will print 5 times.";
+		mes "Esta linha será printada 5 vezes.";
 		.@i += 1;
 	}
 	close;
 
-Example 4: sentinel-controlled loop
-	mes "Input 0 to stop";
+Exemplo 4: sentinel-controlled loop
+	mes "Digite 0 para parar";
 	input .@num;
 	while (.@num != 0) {
-		mes "You entered " + .@num;
+		mes "Você entrou " + .@num;
 		input .@num;
 	}
 	close;
@@ -2080,42 +2082,41 @@ Example 4: sentinel-controlled loop
 
 *for (<variable initialization>; <condition>; <variable update>) <statement>;
 
-Another pretest looping structure is the 'for' statement. It is considered a 
-specialized form of the 'while' statement, and is usually associated with counter-
-controlled loops. Here are the steps of the 'for' statement: the initialize 
-statement is executed first and only once. The condition test is performed. 
-When the condition evaluates to false, the rest of the for statement is skipped. 
-When the condition evaluates to true, the body of the loop is executed, then the 
-update statement is executed (this usually involves incrementing a variable). 
-Then the condition is reevaluated and the cycle continues. 
+Outra estrutura em loop do pré-teste é a instrução 'for'. Considera-se um
+forma especializada da declaração "while", e geralmente está associada a
+loops controlados. Aqui estão os passos da instrução 'for': a instrução de inicializar
+é executada primeiro e apenas uma vez. O teste de condição é executado.
+Quando a condição é avaliada como falsa, o restante da instrução "for" é ignorado.
+Quando a condição é avaliada como verdadeira, o corpo do loop é executado, então a
+instrução de atualização é executada (isso geralmente envolve o incremento de uma variável).
+Então a condição é reavaliada e o ciclo continua.
 
-Example 1:
+Exemplo 1:
 	for( .@i = 1; .@i <= 5; .@i++ )
-		mes "This line will print 5 times.";
-
-Example 2:
-	mes "This will print the numbers 1 - 5.";
+		mes "Esta linha será printada 5 vezes.";
+Exemplo 2:
+	mes "Isto irá imprimir os números 1 - 5.";
 	for( .@i = 1; .@i <= 5; .@i++ )
-		mes "Number: " + .@i;
+		mes "Número: " + .@i;
 
 ---------------------------------------
 
 *do { <statement>; } while (<condition>);
 
-The 'do...while' is the only post-test loop structure available in this script 
-language. With a post-test, the statements are executed once before the condition 
-is tested. When the condition is true, the statement(s) are repeated. When the 
-condition is false, control is transferred to the statement following the 
-'do...while' loop expression.
+O 'do ... while' é a única estrutura de loop de pós-teste disponível nesta linguagem-script.
+Com um pós-teste, as instruções são executadas uma vez antes da condição
+testada. Quando a condição é verdadeira, a(s) instrução(ões) é(são) repetida(s). Quando a
+condição é falsa, o controle é transferido para a declaração após a expressão de laço
+'do ... while'.
 
-Example 1: sentinel-controlled loop
-	mes "This menu will keep appearing until you pick Cancel";
+Exemplo 1: sentinel-controlled loop
+	mes "Este menu continuará aparecendo até você selecionar Cancelar";
 	do {
-		.@menu = select("One:Two:Three:Cancel");
+		.@menu = select("Um:Dois:Três:Cancelar");
 	} while (.@menu != 4);
 
-Example 2: counter-controlled loop
-	mes "This will countdown from 10 to 1.";
+Exemplo 2: counter-controlled loop
+	mes "Isso será contado de 10 para 1.";
 	.@i = 10;
 	do {
 		mes .@i;
@@ -2126,46 +2127,46 @@ Example 2: counter-controlled loop
 
 *freeloop({<toggle>})
 
-Toggling this to enabled (1) allows the script instance to bypass the infinite loop 
-protection, allowing your script to loop as much as it may need. Disabling (0) will
-warn you if an infinite loop is detected.
+O Toggle, este é habilitado (1) permite que a instância de script contorne a proteção do loop infinito,
+permitindo que o seu script faça um loop tanto quanto for necessário. Desativando (0)
+avisará se um loop infinito for detectado.
 
-The command will return the state of freeloop for the attached script, even if no
-argument is provided.
+O comando retornará o estado do freeloop para o script anexado, mesmo que nenhum
+argumento for fornecido.
 
-Example:
-	freeloop(1); // enable script to loop freely
+Exemplo:
+	freeloop(1); // permitir que o script faça um loop livremente
 
-	// be careful with what you do here
+	// tenha cuidado com o que você faz aqui
 	for ( .@i = 0; .@i < .@bigloop; .@i++ ) {
-		dothis;
-		// will sleep the script for 1ms when detect an infinity loop to 
-		// let rAthena do what it needs to do (socket, timer, process, etc.)
+		façaisso;
+		// script vai parar por 1ms quando detectar um loop infinito
+		// deixe o rAthena fazer o que precisa fazer (socket, timer, process, etc.)
 	}
 
-	freeloop(0); // disable freeloop
+	freeloop(0); // desabilitar o freeloop
 
 	for ( .@i = 0; .@i < .@bigloop; .@i++ ) {
-		dothis;
-		// throw an infinity loop error
+		façaisso;
+		// lança um erro de loop infinito
 	}
 
 ---------------------------------------
 
 *setarray <array name>[<first value>],<value>{,<value>...<value>};
 
-This command will allow you to quickly fill up an array in one go. Check the 
-Kafra scripts in the distribution to see this used a lot.
+Este comando permitirá que você preencha rapidamente um array de uma só vez. Verifica
+scripts das Kafras na distribuição para ver isso usado muito.
 
     setarray @array[0], 100, 200, 300, 400, 500, 600;
 
-First value is the index of the first element of the array to alter. For 
-example:
+Primeiro valor é o índice do primeiro elemento da matriz para alterar. Por
+exemplo:
 
     setarray @array[0],200,200,200;
     setarray @array[1],300,150;
     
-will produce:
+Produdirá:
 
  @array[0]=200
  @array[1]=300
@@ -2175,33 +2176,33 @@ will produce:
 
 *cleararray <array name>[<first value to alter>],<value>,<number of values to set>;
 
-This command will change many array values at the same time to the same value.
+Este comando irá alterar vários valores de matriz ao mesmo tempo para o mesmo valor.
 
     setarray @array[0], 100, 200, 300, 400, 500, 600;
-    // This will make all 6 values 0
+    // Isso fará com que todos os 6 valores sejam 0
     cleararray @array[0],0,6;
-    // This will make array element 0 change to 245
+    // Isso fará com que o elemento 0 da array seja alterado para 245
     cleararray @array[0],245,1;
-    // This will make elements 1 and 2 change to 345
+    // Isso fará com que os elementos 1 e 2 mudem para 345
     cleararray @array[1],345,2;
 
-See 'setarray'.
+Veja 'setarray'.
 
 ---------------------------------------
 
 *copyarray <destination array>[<first value>],<source array>[<first value>],<amount of data to copy>;
 
-This command lets you quickly shuffle a lot of data between arrays, which is in 
-some cases invaluable.
+Este comando permite que você embaralhe rapidamente muitos dados entre arrays, que estão em
+alguns casos inestimáveis.
 
     setarray @array[0], 100, 200, 300, 400, 500, 600;
-    // So we have made @array[]
+    //Então fizemos @array []
     copyarray @array2[0],@array[2],2;
     
-    // Now, @array2[0] will be equal to @array[2] (300) and 
-    // @array2[1] will be equal to @array[3].
+    // Agora, @array2[0] será igual a @array[2] (300) e
+    // @array2[1] será igual a @array[3].
 
-So using the examples above:
+Então, usando os exemplos acima:
  @array[0] = 100
  @array[1] = 200
  @array[2] = 300
@@ -2209,28 +2210,28 @@ So using the examples above:
  @array[4] = 500
  @array[5] = 600
  
-New Array:
+Nova array:
  @array2[0] = 300
  @array2[1] = 400
  @array2[2] = 0
  @array2[3] = 0
 
-Notice that @array[4] and @array[5] won't be copied to the second array, and it will return a 
+Observe que @array [4] e @array [5] não serão copiados para o segundo array, e ele retornará um
 0.
 
 ---------------------------------------
 
 *deletearray <array name>[<first value>],<how much to delete>;
 
-This command will delete a specified number of array elements totally from an 
-array, shifting all the elements beyond this towards the beginning.
+Este comando excluirá um número especificado de elementos da array totalmente de uma
+array, deslocando todos os elementos além deste em direção ao início.
 
-    // This will delete array element 0, and move all the other array elements 
-    // up one place.
+    // Isso excluirá o elemento 0 da array e moverá todos os outros elementos da array
+    // um lugar acima.
     deletearray @array[0],1
 
-// This would delete array elements numbered 1, 2 and 3, leave element 0 in its 
-// place, and move the other elements ups, so there are no gaps.
+   // Isso excluiria elementos da array numerados 1, 2 e 3, deixando o elemento 0 em seu
+   // lugar, e mover os outros elementos acima, então não há lacunas.
 
     deletearray @array[1],3
 
