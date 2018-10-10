@@ -20,8 +20,8 @@
 | SQL files in the various Builds of eAmob packages.                       |
 |--------------------------------------------------------------------------|
 | Changelog:                                                               |
-| 1.0 - Developed Document                                                 |
-| 1.1 - Translated Document [J3MK1]                                        |
+| 1.0 - Developed Document.                                                |
+| 1.1 - Translated Document. [J3MK1]                                       |
 \_________________________________________________________________________/
 
 /*
