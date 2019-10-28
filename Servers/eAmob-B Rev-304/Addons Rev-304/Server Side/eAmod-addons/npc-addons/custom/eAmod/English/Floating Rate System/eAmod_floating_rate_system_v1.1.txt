@@ -1,0 +1,62 @@
+//  __________________________________________________________________________
+// /                                                                          \
+// |                           _                                              |
+// |                          / \                         _                   |
+// |                  ___    / _ \   _ __ ___   ____  ___| |                  |
+// |                 / _ \  / /_\ \ | '_ ` _ \./  _ \/  _  |                  |
+// |                |  __/ /  ___  \| | | | | |  (_) ) (_) |                  |
+// |                 \___|/__/   \__\_| |_| |_|\____/\_____/                  |
+// |                                                                          |
+// |                              eAmod Script                                |
+// |                                                                          |
+// |--------------------------------------------------------------------------|
+// | Script Name: Floating Rate System                                        |
+// |--------------------------------------------------------------------------|
+// | Created by: J3MK1 & shellTeMP                                            |
+// |--------------------------------------------------------------------------|
+// | Versions eASU/eA/brA/Herc/rA: all/all                                    |
+// |--------------------------------------------------------------------------|
+// | Description: Sistema simples de mudança de rates.                        |
+// | Configure de acordo as rates oficiais de seu servidor, defalt 100 = 1x,  |
+// | duração de 6 horas.                                                      |
+// | Nota: O sistema não muda as chances de drops raros e não muda o drops    |
+// | de itens provenientes de cartas.                                         |
+// |--------------------------------------------------------------------------|
+// | Changelog:                                                               |
+// | 1.0 - Initial Script Developed. [J3MK1]                                  |
+// | 1.1 - Removida a conexão com banco de dados, adicionada a alteração das  |
+// | rates também nos Drops de consumíveis, equipamentos e etc. [shellTeMP]   |
+// \_________________________________________________________________________/
+
+-	script	FloatingRates	-1,{
+
+// Adicione aqui os horários de início e fim, duração padrão de 6 horas
+
+OnHour00:	// Início
+OnHour06:	// Fim
+OnHour12:	// Início
+OnHour18:	// Fim
+
+	set $@brate,rand(100,150);	// Rates padrões: 100 = 1x, 150 = 1.5x configure de acordo as rates oficiais de seu servidor
+	set $@jrate,rand(100,150);
+	set $@drate,rand(100,150);
+	
+	// EXP de Base
+	setbattleflag("base_exp_rate",$@brate);
+	
+	// EXP de Job
+	setbattleflag("job_exp_rate",$@jrate);
+	
+	// Drops
+	setbattleflag("item_rate_common",$@drate);
+	setbattleflag("item_rate_heal",$@drate);
+	setbattleflag("item_rate_use",$@drate);
+	setbattleflag("item_rate_equip",$@drate);
+	
+	// Configurações atuais não mudam chances de drops raros
+	atcommand "@reloadmobdb";
+	
+	announce "[Comunicado] Rates flutuantes ativadas, rates atuais: 1."+($@brate-100)+"x 1."+($@jrate-100)+"x 1."+($@drate-100)+"x",bc_all,0xFF6060;
+	announce "Digite @rates e confira as rates atuais, duração de seis horas após iniciado",bc_all,0xFF6060;
+	end;
+}

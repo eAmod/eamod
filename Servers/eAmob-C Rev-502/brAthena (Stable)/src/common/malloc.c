@@ -308,7 +308,7 @@ void *_mmalloc(size_t size, const char *file, int line, const char *func)
 	}
 
 	if(block->unit_unfill == 0xFFFF && block->unit_maxused >= block->unit_count) {
-		// �ｽ�ｽ�ｽj�ｽb�ｽg�ｽ�ｽ�ｽg�ｽ�ｽ�ｽﾊゑｿｽ�ｽ�ｽ�ｽ�ｽ�ｽﾌで、unfill�ｽ�ｽ�ｽX�ｽg�ｽ�ｽ�ｽ�ｽ�ｽ尞
+		// �ｽ�ｽ�ｽj�ｽb�ｽg�ｽ�ｽ�ｽg�ｽ�ｽ�ｽﾊゑｿｽ�ｽ�ｽ�ｽ�ｽ�ｽﾌで、unfill�ｽ�ｽ�ｽX�ｽg�ｽ�ｽ�ｽ�ｽ�
 		if(block->unfill_prev == &block_head) {
 			hash_unfill[ size_hash ] = block->unfill_next;
 		} else {

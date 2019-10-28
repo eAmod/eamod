@@ -1,0 +1,89 @@
+//  __________________________________________________________________________
+// /                                                                          \
+// |                           _                                              |
+// |                          / \                         _                   |
+// |                  ___    / _ \   _ __ ___   ____  ___| |                  |
+// |                 / _ \  / /_\ \ | '_ ` _ \./  _ \/  _  |                  |
+// |                |  __/ /  ___  \| | | | | |  (_) ) (_) |                  |
+// |                 \___|/__/   \__\_| |_| |_|\____/\_____/                  |
+// |                                                                          |
+// |                              eAmod Script                                |
+// |                                                                          |
+// |--------------------------------------------------------------------------|
+// | Script Name: Floating Rate System                                        |
+// |--------------------------------------------------------------------------|
+// | Created by: J3MK1 & shellTeMP                                            |
+// |--------------------------------------------------------------------------|
+// | Versions eASU/eA/brA/Herc/rA: all/all                                    |
+// |--------------------------------------------------------------------------|
+// | Description: Sistema simples de mudança de rates.                        |
+// | Configure de acordo as rates oficiais de seu servidor, defalt 100 = 1x,  |
+// | duração de 6 horas.                                                      |
+// | Nota: O sistema não muda as chances de drops raros e não muda o drops    |
+// | de itens provenientes de cartas.                                         |
+// |--------------------------------------------------------------------------|
+// | Changelog:                                                               |
+// | 1.0 - Initial Script Developed. [J3MK1]                                  |
+// | 1.1 - Removed the connection with database, added the change of rates    |
+// |  also on the Drops of consumables, equipment and etc. [shellTeMP]        |
+// | 1.2 - Fix of start and end times and the reset of rates [J3MK1]          |
+// \_________________________________________________________________________/
+
+-	script	FloatingRates	-1,{
+
+// Add here the start times, default duration of 6 hours
+
+OnHour00:	
+OnHour02:
+
+
+	set $@brate,rand(100,150);	// Default rates: 100 = 1x, 150 = 1.5x configure according to the official rates of your server
+	set $@jrate,rand(100,150);
+	//set $@drate,rand(100,150); 
+	
+	// Base EXP
+	setbattleflag("base_exp_rate",$@brate);
+	
+	// Job EXP
+	setbattleflag("job_exp_rate",$@jrate);
+	
+	// Drops
+	//setbattleflag("item_rate_common",$@drate);
+	//setbattleflag("item_rate_heal",$@drate);
+	//setbattleflag("item_rate_use",$@drate);
+	//setbattleflag("item_rate_equip",$@drate);
+	
+	// Current settings do not change chances of rare drops
+	atcommand "@reloadmobdb";
+	
+	announce "[INFO] Floating rates enabled, current rates: 1."+($@brate-100)+"x 1."+($@jrate-100)+"x 1."+($@drate-100)+"x",bc_all,0xFF6060;
+	announce "Type @rates and check the current rates, duration of six hours after starting.",bc_all,0xFF6060;
+	end;
+	
+// Add end times here
+OnHour06:
+OnHour18
+	set $@brate,rand(0,0);	// Default rates: 100 = 1x, 150 = 1.5x configure according to the official rates of your server
+	set $@jrate,rand(0,0);
+	//set $@drate,rand(0,0);
+	
+	// Base EXP
+	setbattleflag("base_exp_rate",$@brate);
+	
+	// Job EXP
+	setbattleflag("job_exp_rate",$@jrate);
+	
+	// Drops
+	//setbattleflag("item_rate_common",$@drate);
+	//setbattleflag("item_rate_heal",$@drate);
+	//setbattleflag("item_rate_use",$@drate);
+	//setbattleflag("item_rate_equip",$@drate);
+	
+	// Current settings do not change chances of rare drops
+	atcommand "@reloadmobdb";
+	
+	announce "[INFO] Floating rates disabled, current rates: 1."+($@brate-100)+"x 1."+($@jrate-100)+"x 1."+($@drate-100)+"x",bc_all,0xFF6060;
+	announce "Type @rates and check the current rates, duration of six hours after starting.",bc_all,0xFF6060;
+	end;
+
+}

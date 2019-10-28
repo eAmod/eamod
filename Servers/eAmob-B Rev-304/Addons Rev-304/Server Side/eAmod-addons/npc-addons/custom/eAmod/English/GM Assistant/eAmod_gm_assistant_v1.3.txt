@@ -1,0 +1,184 @@
+//  __________________________________________________________________________
+// /                                                                          \
+// |                           _                                              |
+// |                          / \                         _                   |
+// |                  ___    / _ \   _ __ ___   ____  ___| |                  |
+// |                 / _ \  / /_\ \ | '_ ` _ \./  _ \/  _  |                  |
+// |                |  __/ /  ___  \| | | | | |  (_) ) (_) |                  |
+// |                 \___|/__/   \__\_| |_| |_|\____/\_____/                  |
+// |                                                                          |
+// |                              eAmod Script                                |
+// |                                                                          |
+// |--------------------------------------------------------------------------|
+// | Script Name: eAmod Game Master Safe                                      |
+// |--------------------------------------------------------------------------|
+// | Created by: shellTeMP & J3MK1                                            |
+// |--------------------------------------------------------------------------|
+// | Versions eASU/eA/brA/Herc/rA: all/all                                    |
+// |--------------------------------------------------------------------------|
+// | Description: It makes [GM] invisible, immune to battle against players   |
+// |  (PvP), immune to battle against monsters (PvM), and increases it's      |
+// |  standard movement speed.                                                |
+// |--------------------------------------------------------------------------|
+// | Changelog:                                                               |
+// | 1.0 - Initial Script Developed. [shellTeMP & J3MK1]                      |
+// | 1.1 - Added Base and Job Level Up for Game Masters with administration   |
+// | level 89 or higher. [shellTeMP]                                          |
+// | 1.2 - Added "@eAmodmaster" commands, cloning the char on each class      |
+// | with all skills. [shellTeMP & J3MK1]                                     |
+// | 1.3 - Added "@eAmodtestfx" command, now it's possible to test and check  |
+// | specialeffects inside the game using this NPC. [shellTeMP & J3MK1]       |
+// \_________________________________________________________________________/
+
+-	script	eamodgmsafe	-1,{
+	end;
+
+	OnPcLoginEvent:
+		if(getgroupid() > 79)
+			atcommand( "@hide" );
+		if(getgroupid() > 79)
+			atcommand( "@monsterignore" );
+		if(getgroupid() > 79)
+			atcommand( "@battleignore" );
+		if(getgroupid() > 79)
+			atcommand( "@speed 80" );
+		if(getgroupid() > 89)
+      atcommand( "@joblvup 70" );
+		if(getgroupid() > 89)
+      atcommand( "baselvup 70" );
+		end;
+
+OnCloneDead:
+	end;
+
+OneAmodMaster:
+				getmapxy(.@map$, .@mapx, .@mapy, UNITTYPE_PC);
+				set .@baseJob, Class;
+				atcommand( "@job 4060" );
+				atcommand( "@jlvl 70" );
+				atcommand( "@allskills" );	
+				atcommand( "@clone " + strcharinfo(0) );
+				atcommand( "@job 4061" );
+				atcommand( "@jlvl 70" );
+				atcommand( "@allskills" );
+				atcommand( "@clone " + strcharinfo(0) );
+				atcommand( "@job 4062" );
+				atcommand( "@jlvl 70" );
+				atcommand( "@allskills" );
+				atcommand( "@clone " + strcharinfo(0) );
+				atcommand( "@job 4063" );
+				atcommand( "@jlvl 70" );
+				atcommand( "@allskills" );
+				atcommand( "@clone " + strcharinfo(0) );
+				atcommand( "@job 4064" );
+				atcommand( "@jlvl 70" );
+				atcommand( "@allskills" );
+				atcommand( "@clone " + strcharinfo(0) );
+				atcommand( "@job 4065" );
+				atcommand( "@jlvl 70" );
+				atcommand( "@allskills" );
+				atcommand( "@clone " + strcharinfo(0) );
+				atcommand( "@job 4073" );
+				atcommand( "@jlvl 70" );
+				atcommand( "@allskills" );
+				atcommand( "@clone " + strcharinfo(0) );
+				atcommand( "@job 4074" );
+				atcommand( "@jlvl 70" );
+				atcommand( "@allskills" );
+				atcommand( "@clone " + strcharinfo(0) );
+				atcommand( "@job 4075" );
+				atcommand( "@jlvl 70" );
+				atcommand( "@allskills" );
+				atcommand( "@clone " + strcharinfo(0) );
+				atcommand( "@job 4077" );
+				atcommand( "@jlvl 70" );
+				atcommand( "@allskills" );
+				atcommand( "@clone " + strcharinfo(0) );
+				atcommand( "@job 4079" );
+				atcommand( "@jlvl 70" );
+				atcommand( "@allskills" );
+				atcommand( "@clone " + strcharinfo(0) );
+				atcommand( "@job 4080" );
+				atcommand( "@jlvl 70" );
+				atcommand( "@allskills" );
+				atcommand( "@clone " + strcharinfo(0) );
+				jobchange .@baseJob;
+				atcommand( "@jlvl 70" );
+				atcommand( "@allskills" );
+				end;
+	
+OneAmodTestFX:
+			mes "[Safeman]";
+			mes "Please, select an option.";
+			if(select("- Display effects","- Browse effects") == 1)
+			{
+				next;
+				mes "[Safeman]";
+				mes "Enter effect id.";
+				input .@effect;
+				if(.@effect < .maxEffectId)
+				{
+					if(callsub(OnCheckEffect, .@effect) == 1)
+					{
+						specialeffect2 .@effect;
+						close;
+					}
+					else
+					{
+						mes "This effect is knowingly bugged.";
+					}
+				}
+				else
+				{
+					mes "Effect out of range.";
+				}
+			}
+			else
+			{
+				mes "Start at rank?";
+				input .@start;
+				freeloop 1;
+				for( .@i = .@start; .@i<.maxEffectId; .@i++)
+				{
+					mes "Effect " + .@i;
+					if(callsub(OnCheckEffect, .@i) == 1)
+					{
+						specialeffect2 .@i;
+					}
+					else
+					{
+						mes "This effect is knowingly bugged.";
+					}
+					next;
+				}
+				freeloop 0;	
+			}
+			end;
+	
+OnCheckEffect:
+			freeloop 1;
+			for( .@i = 0; .@i<getarraysize(.forbiddenEffect); .@i++)
+			{
+				if(.forbiddenEffect[.@i] == getarg(0))
+				{
+					freeloop 0;
+					return 0;
+				}
+			}
+			freeloop 0;
+			return 1;
+			
+		OnInit:
+			bindatcmd "eAmodmaster",strnpcinfo(3)+"::OneAmodMaster";
+			bindatcmd "eAmodtestfx",strnpcinfo(3)+"::OneAmodTestFX";
+			
+			.maxEffectId = 967;
+			setarray .forbiddenEffect[0],243,19,156,157,167,168,933;
+			//14,39,40,52, 83, 87, 225, 236, 237, 238
+			//cast 60, 61, 98, 280
+			//117, 118, 358, 381, 387, 394, 403, 410, 420, 571, 573
+			//622, 650, 687, 688, 689, 729, 796, 883, 896, 897, 903
+			//912, 930, 944
+			
+			end;
+}
